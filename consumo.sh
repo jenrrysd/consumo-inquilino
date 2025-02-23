@@ -6,7 +6,6 @@ NORMAL=$(tput sgr0) #restablece formato
 while :
 do
 echo -e "===APLICACIÓN PARA CALCULAR CONSUMO ELECTRICO===\nEscoga una opción"
-#echo "Escoga una opción"
 	echo "1.) Calcular"
 	echo "0.) Salir"
 	echo " "
