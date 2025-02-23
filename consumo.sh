@@ -1,7 +1,21 @@
 #!/bin/bash
-clear
+
 BOLD=$(tput bold) #texto en negrita
 NORMAL=$(tput sgr0) #restablece formato
+
+while :
+do
+echo -e "===APLICACIÓN PARA CALCULAR CONSUMO ELECTRICO===\nEscoga una opción"
+#echo "Escoga una opción"
+	echo "1.) Calcular"
+	echo "0.) Salir"
+	echo " "
+	echo -n "Su opción elegida es: "
+	read opcion
+	clear
+	case $opcion in
+
+1)
 
 echo " "
 echo "${BOLD}=== CALCULADORA DE CONSUMO ELECTRICO ==="
@@ -10,7 +24,9 @@ read -p "Ingresar el consumo electrico del inquilino: " consumo
 echo " "
 
 # Costo por hora kilovatio-hora
-kilowat="0.6742"
+kilowat="0.6742" #comas
+#kilowat="0.6583" #jesus maria
+
 echo "Este es el precio de kilovatio-hora:         $kilowat"
 
 # calcular el costo total de electricidad consumo mas kilovatio
@@ -36,13 +52,22 @@ if (( $(echo "$parte_decimal >= 0.5" | bc -l) )); then
 	redondeo=$((parte_entera + 1))
 	echo " "
 	echo -e "El resultado es mayor o igual a 5
-se aplica el redondeo, total a pagar:        S/.$redondeo soles"
+se aplica el redondeo, total a pagar:        S/.$redondeo soles${NORMAL}"
 else
 	redondeo=$parte_entera
 	echo " "
 	echo -e "El resultado es menor a 5
-no aplica redondeo, total a pagar:           S/.$redondeo soles"
+no aplica redondeo, total a pagar:           S/.$redondeo soles${NORMAL}"
 fi
-echo " "
+echo "========================================================="
 echo "${NORMAL}Creado por; Jenrry Soto Dextre${NORMAL}"
+echo "---------------------------------------------------------"
+echo -e "Quiere volver a calcular? entonces escribe 1\nsi quiere salir escribe cero "
+echo -e " \n "
+;;
+
+0) echo "Usted a salido de la calculadora" ; exit 0
+
+esac
+done
 
