@@ -1,5 +1,10 @@
 #!/bin/bash
+clear
+BOLD=$(tput bold) #texto en negrita
+NORMAL=$(tput sgr0) #restablece formato
 
+echo " "
+echo "${BOLD}=== CALCULADORA DE CONSUMO ELECTRICO ==="
 echo " "
 read -p "Ingresar el consumo electrico del inquilino: " consumo
 echo " "
@@ -30,14 +35,14 @@ parte_decimal=$(echo "scale=4; $total - $parte_entera" | bc)
 if (( $(echo "$parte_decimal >= 0.5" | bc -l) )); then 
 	redondeo=$((parte_entera + 1))
 	echo " "
-	echo -e "El redondeo es mayor o igual a 5 entonces
-sí aplica el redondeo, el total a pagar es de:  S/.$redondeo soles"
+	echo -e "El resultado es mayor o igual a 5
+se aplica el redondeo, total a pagar:        S/.$redondeo soles"
 else
 	redondeo=$parte_entera
 	echo " "
-	echo -e "El redondeo es menor a 5 entonces
-no se redondea a mayor, el total a pagar es de: S/.$redondeo soles"
+	echo -e "El resultado es menor a 5
+no aplica redondeo, total a pagar:           S/.$redondeo soles"
 fi
 echo " "
-echo "Buena mama Coty una ayudita no esta de mas..."
+echo "${NORMAL}Creado por; Jenrry Soto Dextre${NORMAL}"
 
