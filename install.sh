@@ -5,9 +5,9 @@ ejecutable=$PWD/consumo.sh
 cat > ~/.local/share/applications/consumo.desktop << EOF
 [Desktop Entry]
 Type=Application
-Categories=GNOME;GTK;AudioVideo;Audio;Player;
+Categories=Office;
 Name=Consumo
-Comment=Consumo
+Comment=Calcular Consumo de Electricida del Inquilino
 Icon=$icono
 Exec=$ejecutable
 MimeType=image/jpeg;image/png;image/svg;
