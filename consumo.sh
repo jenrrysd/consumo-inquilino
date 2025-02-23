@@ -21,7 +21,7 @@ echo " "
 echo "${BOLD}=== CALCULADORA DE CONSUMO ELECTRICO ==="
 echo " "
 read -p "Ingresar el consumo electrico del inquilino: " consumo
-read -p "Ingresar el costo adicional: " adicional
+read -p "Ingresar adicional (baño, hall, lavnaderia): " adicional
 echo " "
 
 # Costo por hora kilovatio-hora
