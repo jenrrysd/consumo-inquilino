@@ -5,6 +5,7 @@ NORMAL=$(tput sgr0) #restablece formato
 
 while :
 do
+echo " "
 echo -e "===APLICACIÓN PARA CALCULAR CONSUMO ELECTRICO===\nEscoga una opción"
 	echo "1.) Calcular"
 	echo "0.) Salir"
@@ -20,6 +21,7 @@ echo " "
 echo "${BOLD}=== CALCULADORA DE CONSUMO ELECTRICO ==="
 echo " "
 read -p "Ingresar el consumo electrico del inquilino: " consumo
+read -p "Ingresar el costo adicional: " adicional
 echo " "
 
 # Costo por hora kilovatio-hora
@@ -32,14 +34,17 @@ echo "Este es el precio de kilovatio-hora:         $kilowat"
 costo_electricidad=$(echo "scale=2; $consumo * $kilowat" | bc)
 echo "Resultado del consumo mas el kilovatio-hora: $costo_electricidad"
 
+# calcular el costo del consumo electricidad mas el adicional
+costo_electricidad_adicional=$(echo "scale=2; $consumo * $kilowat + $adicional" | bc)
+echo "Resultado del kilovatio-hora mas adicional:  $costo_electricidad_adicional"
 
 # Calcular el IGV del 18%
-igv=$(echo "scale=2; $costo_electricidad * 0.18" | bc)
+igv=$(echo "scale=2; $costo_electricidad_adicional * 0.18" | bc)
 echo "El igv del (18%) es:                         $igv"
 
 # Calcular el total  a pagar (costo de electricidad + IGV)
-total=$(echo "scale=2; $costo_electricidad + $igv" | bc)
-echo "El resultado total a pagar es:               $total"
+total=$(echo "scale=2; $costo_electricidad_adicional + $igv" | bc)
+echo "El resultado a pagar es:                     $total"
 
 # Redondeo
 parte_entera=$(echo "scale=0; $total / 1" | bc)
@@ -63,9 +68,10 @@ echo "${NORMAL}Creado por; Jenrry Soto Dextre${NORMAL}"
 echo "---------------------------------------------------------"
 echo -e "Quiere volver a calcular? entonces escribe 1\nsi quiere salir escribe cero "
 echo -e " \n "
+
 ;;
 
-0) echo "Usted a salido de la calculadora" ; exit 0
+0) echo -e "\nUsted a salido de la calculadora" ; exit 0
 
 esac
 done
