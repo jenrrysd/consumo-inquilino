@@ -5,6 +5,8 @@ NORMAL=$(tput sgr0) #restablece formato
 
 while :
 do
+# Cambia el título de la terminal a "CONSUMO INQUILINO"
+echo -ne "\033]0;CONSUMO INQUILINO\007"
 echo " "
 echo -e "===APLICACIÓN PARA CALCULAR CONSUMO ELECTRICO===\nEscoga una opción"
 	echo "1.) Calcular"
