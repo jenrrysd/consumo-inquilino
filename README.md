@@ -15,4 +15,9 @@ Nota: si queremos detener y salir del script, en el teclado presionamos
 la combinación de teclas:
 
 ctrl + c
+---------------------------------------
+Para la versión python se debe instalar 
+sudo apt install python3-tk
+
+
  
