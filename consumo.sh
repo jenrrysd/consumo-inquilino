@@ -27,7 +27,7 @@ read -p "Ingresar adicional (baño, hall, lavnaderia): " adicional
 echo " "
 
 # Costo por hora kilovatio-hora
-kilowat="0.6742" #comas
+kilowat="0.64" #comas
 #kilowat="0.6583" #jesus maria
 
 echo "Este es el precio de kilovatio-hora:         $kilowat"

@@ -14,7 +14,7 @@ def calcular_consumo():
         adicional = float(entry_adicional.get())
         
         # Costo por kilovatio-hora
-        kilowat = 0.6742
+        kilowat = 0.64
         
         # Calcular el costo total de electricidad
         costo_electricidad = consumo * kilowat
@@ -72,7 +72,7 @@ root = tk.Tk()
 root.title("Calculadora de Consumo Eléctrico")
 
 # Establecer un tamaño fijo para la ventana (ancho x alto)
-root.geometry("400x360")  # Por ejemplo, 400 píxeles de ancho y 300 de alto
+root.geometry("420x390")  # Por ejemplo, 400 píxeles de ancho y 300 de alto
 
 # Crear y colocar los widgets
 label_consumo = tk.Label(root, text="Consumo eléctrico del inquilino:")
